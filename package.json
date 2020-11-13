@@ -1,0 +1,43 @@
+{
+  "name": "electron-set",
+  "version": "0.0.1",
+  "description": "Simple electron setting",
+  "main": "build/index.js",
+  "keywords": [
+    "electron",
+    "set"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "install": "npm run-script build"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seo-Rii/electron-set.git"
+  },
+  "author": "Seo-Rii <studioSeoRii@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Seo-Rii/electron-set/issues",
+    "email": "studioSeoRii@gmail.com"
+  },
+  "homepage": "https://github.com/Seo-Rii/electron-set#readme",
+  "gypfile": true,
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "typescript": "^4.0.5"
+  },
+  "files": [
+    "/LICENSE",
+    "/README.md",
+    "/tsconfig.json",
+    "/package.json",
+    "/package-lock.json",
+    "/logo.png",
+    "/index.d.ts",
+    "src/**/*"
+  ]
+}
