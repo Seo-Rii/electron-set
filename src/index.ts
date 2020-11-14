@@ -1,24 +1,34 @@
 import electron from 'electron'
 import _ from 'lodash'
-import settingConfig from './config'
+import {Isetting, configureParser, defaultConfig} from './config'
 import uuid from './uuid'
+import {load, loadSync, save, saveSync} from './fileOperation'
+
+type Tdata = Object | ProxyHandler<any>
 
 export default class Setting {
 
-    #dataObj: null | Object = null
+    #dataObj: Object = defaultConfig
+    #config: Isetting
 
     #proxyHandler = {
-        get: function (obj: Object, prop: string): any {
-            let data
+        get: (obj: Object, prop: string): any => {
+            let data = this.getAllData()
+            return _.get(data, prop)
         }
     }
 
-    constructor() {
 
+    constructor(config: undefined | Isetting) {
+        this.#config = configureParser(config ?? defaultConfig)
     }
 
-    get data(): ProxyHandler<any> {
+    get data(): Tdata {
         return new Proxy({}, this.#proxyHandler)
+    }
+
+    set data(obj: Tdata) {
+
     }
 
     getAllData(): undefined | Object {
